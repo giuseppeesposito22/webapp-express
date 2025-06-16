@@ -6,6 +6,7 @@ const app = express();
 require("dotenv").config();
 const { APP_PORT, APP_URL } = process.env;
 const { notFound, errorHandler } = require("./middlewares/error");
+const movieRouters = require("./routers/movieRouter");
 
 // static assets
 app.use(express.static("public"));
@@ -13,9 +14,8 @@ app.use(express.static("public"));
 // body parser
 app.use(express.json());
 
-app.get("/", (req, res) => {
-  res.json("ok");
-});
+// routers secondo architettura REST
+app.use("/movies", movieRouters);
 
 //middlewares
 app.use(notFound);

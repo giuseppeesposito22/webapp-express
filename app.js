@@ -27,5 +27,5 @@ app.use(errorHandler);
 
 // listen
 app.listen(3000, () => {
-  console.log(`App listening on ${APP_URL}: ${APP_PORT}`);
+  console.log(`App listening on ${APP_URL}:${APP_PORT}`);
 });

@@ -1,5 +1,6 @@
 // config
 const express = require("express");
+const cors = require("cors");
 const app = express();
 
 // import
@@ -7,6 +8,9 @@ require("dotenv").config();
 const { APP_PORT, APP_URL } = process.env;
 const { notFound, errorHandler } = require("./middlewares/error");
 const movieRouters = require("./routers/movieRouter");
+
+// cors
+app.use(cors());
 
 // static assets
 app.use(express.static("public"));

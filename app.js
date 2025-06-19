@@ -5,12 +5,13 @@ const app = express();
 
 // import
 require("dotenv").config();
-const { APP_PORT, APP_URL } = process.env;
+const { APP_PORT, APP_URL, FRONTEND_URL } = process.env;
 const { notFound, errorHandler } = require("./middlewares/error");
 const movieRouters = require("./routers/movieRouter");
+const corsConfig = { origin: FRONTEND_URL };
 
 // cors
-app.use(cors());
+app.use(cors(corsConfig));
 
 // static assets
 app.use(express.static("public"));
